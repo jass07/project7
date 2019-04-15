@@ -1,0 +1,61 @@
+20:54:17 **** Build of configuration Debug for project blip ****
+make -r -j4 all 
+Building file: ../freertos/src/FreeRTOSCommonHooks.c
+Building file: ../freertos/src/heap_3.c
+Building file: ../freertos/src/list.c
+Building file: ../freertos/src/port.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_LPCOPEN -DCORE_M3 -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/lpc_chip_175x_6x/inc" -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/lpc_board_nxp_lpcxpresso_1769/inc" -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/blip/example/inc" -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/blip/freertos/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -specs=redlib.specs -MMD -MP -MF"freertos/src/heap_3.d" -MT"freertos/src/heap_3.o" -MT"freertos/src/heap_3.d" -o "freertos/src/heap_3.o" "../freertos/src/heap_3.c"
+Invoking: MCU C Compiler
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_LPCOPEN -DCORE_M3 -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/lpc_chip_175x_6x/inc" -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/lpc_board_nxp_lpcxpresso_1769/inc" -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/blip/example/inc" -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/blip/freertos/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -specs=redlib.specs -MMD -MP -MF"freertos/src/FreeRTOSCommonHooks.d" -MT"freertos/src/FreeRTOSCommonHooks.o" -MT"freertos/src/FreeRTOSCommonHooks.d" -o "freertos/src/FreeRTOSCommonHooks.o" "../freertos/src/FreeRTOSCommonHooks.c"
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_LPCOPEN -DCORE_M3 -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/lpc_chip_175x_6x/inc" -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/lpc_board_nxp_lpcxpresso_1769/inc" -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/blip/example/inc" -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/blip/freertos/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -specs=redlib.specs -MMD -MP -MF"freertos/src/port.d" -MT"freertos/src/port.o" -MT"freertos/src/port.d" -o "freertos/src/port.o" "../freertos/src/port.c"
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_LPCOPEN -DCORE_M3 -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/lpc_chip_175x_6x/inc" -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/lpc_board_nxp_lpcxpresso_1769/inc" -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/blip/example/inc" -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/blip/freertos/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -specs=redlib.specs -MMD -MP -MF"freertos/src/list.d" -MT"freertos/src/list.o" -MT"freertos/src/list.d" -o "freertos/src/list.o" "../freertos/src/list.c"
+Finished building: ../freertos/src/FreeRTOSCommonHooks.c
+ 
+Building file: ../freertos/src/queue.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_LPCOPEN -DCORE_M3 -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/lpc_chip_175x_6x/inc" -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/lpc_board_nxp_lpcxpresso_1769/inc" -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/blip/example/inc" -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/blip/freertos/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -specs=redlib.specs -MMD -MP -MF"freertos/src/queue.d" -MT"freertos/src/queue.o" -MT"freertos/src/queue.d" -o "freertos/src/queue.o" "../freertos/src/queue.c"
+Finished building: ../freertos/src/heap_3.c
+ 
+Building file: ../freertos/src/tasks.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_LPCOPEN -DCORE_M3 -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/lpc_chip_175x_6x/inc" -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/lpc_board_nxp_lpcxpresso_1769/inc" -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/blip/example/inc" -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/blip/freertos/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -specs=redlib.specs -MMD -MP -MF"freertos/src/tasks.d" -MT"freertos/src/tasks.o" -MT"freertos/src/tasks.d" -o "freertos/src/tasks.o" "../freertos/src/tasks.c"
+Finished building: ../freertos/src/list.c
+ 
+Building file: ../example/src/blip.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_LPCOPEN -DCORE_M3 -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/lpc_chip_175x_6x/inc" -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/lpc_board_nxp_lpcxpresso_1769/inc" -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/blip/example/inc" -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/blip/freertos/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -specs=redlib.specs -MMD -MP -MF"example/src/blip.d" -MT"example/src/blip.o" -MT"example/src/blip.d" -o "example/src/blip.o" "../example/src/blip.c"
+Finished building: ../freertos/src/port.c
+ 
+Building file: ../example/src/cr_startup_lpc175x_6x.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_LPCOPEN -DCORE_M3 -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/lpc_chip_175x_6x/inc" -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/lpc_board_nxp_lpcxpresso_1769/inc" -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/blip/example/inc" -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/blip/freertos/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -specs=redlib.specs -MMD -MP -MF"example/src/cr_startup_lpc175x_6x.d" -MT"example/src/cr_startup_lpc175x_6x.o" -MT"example/src/cr_startup_lpc175x_6x.d" -o "example/src/cr_startup_lpc175x_6x.o" "../example/src/cr_startup_lpc175x_6x.c"
+Finished building: ../freertos/src/queue.c
+ 
+Building file: ../example/src/sysinit.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_LPCOPEN -DCORE_M3 -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/lpc_chip_175x_6x/inc" -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/lpc_board_nxp_lpcxpresso_1769/inc" -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/blip/example/inc" -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/blip/freertos/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -specs=redlib.specs -MMD -MP -MF"example/src/sysinit.d" -MT"example/src/sysinit.o" -MT"example/src/sysinit.d" -o "example/src/sysinit.o" "../example/src/sysinit.c"
+Finished building: ../example/src/cr_startup_lpc175x_6x.c
+ 
+Finished building: ../example/src/blip.c
+ 
+Finished building: ../freertos/src/tasks.c
+ 
+Finished building: ../example/src/sysinit.c
+ 
+Building target: blip.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/lpc_chip_175x_6x/Debug" -L"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/lpc_board_nxp_lpcxpresso_1769/Debug" -Xlinker -Map="blip.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "freertos_blinky_Debug.ld" -o "blip.axf"  ./freertos/src/FreeRTOSCommonHooks.o ./freertos/src/heap_3.o ./freertos/src/list.o ./freertos/src/port.o ./freertos/src/queue.o ./freertos/src/tasks.o  ./example/src/blip.o ./example/src/cr_startup_lpc175x_6x.o ./example/src/sysinit.o   -llpc_board_nxp_lpcxpresso_1769 -llpc_chip_175x_6x
+Finished building target: blip.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "blip.axf"; # arm-none-eabi-objcopy -v -O binary "blip.axf" "blip.bin" ; # checksum -p LPC1769 -d "blip.bin";
+   text	   data	    bss	    dec	    hex	filename
+  11852	     12	    824	  12688	   3190	blip.axf
+ 
+
+20:54:18 Build Finished (took 1s.93ms)
+

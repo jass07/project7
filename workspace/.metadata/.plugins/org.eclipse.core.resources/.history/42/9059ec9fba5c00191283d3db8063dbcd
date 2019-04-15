@@ -1,0 +1,161 @@
+#include "board.h"
+#include "FreeRTOS.h"
+
+#include "task.h"
+#include "semphr.h"
+
+
+#define Red_Led_GPIO_PORT_NUM                   0
+#define Red_Led_GPIO_BIT_NUM                   22
+#define Blue_Led_GPIO_PORT_NUM                  3
+#define Blue_Led_GPIO_BIT_NUM                  26
+#define Green_Led_GPIO_PORT_NUM                 3
+#define Green_Led_GPIO_BIT_NUM                  25
+
+
+
+
+/*****************************************************************************
+ * Private types/enumerations/variables
+ ****************************************************************************/
+
+/*****************************************************************************
+ * Public types/enumerations/variables
+ ****************************************************************************/
+
+/*****************************************************************************
+ * Private functions
+ ****************************************************************************/
+
+/* Sets up system hardware */
+
+
+xSemaphoreHandle RGB=0;
+
+static void prvSetupHardware(void)
+{
+	SystemCoreClockUpdate();
+	Board_Init();
+
+	/* Initial LED0 state is off */
+	Board_LED_Set(0, false);
+}
+
+/* RED toggle thread */
+
+static void vLEDTask1(void *pvParameters)
+ {
+
+
+	while (1)
+	{
+	if (xSemaphoreTake(RGB,1000))
+
+	{
+		Chip_GPIO_WriteDirBit(LPC_GPIO, Red_Led_GPIO_PORT_NUM, Red_Led_GPIO_BIT_NUM, 1);
+		Chip_GPIO_WriteDirBit(LPC_GPIO, Green_Led_GPIO_PORT_NUM, Green_Led_GPIO_BIT_NUM,0);
+		Chip_GPIO_WriteDirBit(LPC_GPIO, Blue_Led_GPIO_PORT_NUM, Blue_Led_GPIO_BIT_NUM,0);
+
+	}
+	else
+			{
+				xSemaphoreGive(RGB);
+
+			}
+
+	vTaskDelay(4000);
+
+
+	}
+}
+
+/* BLUE toggle thread */
+static void vLEDTask2(void *pvParameters)
+{
+
+
+	while (1)
+	{
+		if (xSemaphoreTake(RGB ,1000))
+
+		{
+			Chip_GPIO_WriteDirBit(LPC_GPIO, Red_Led_GPIO_PORT_NUM, Red_Led_GPIO_BIT_NUM, 0);
+			Chip_GPIO_WriteDirBit(LPC_GPIO, Green_Led_GPIO_PORT_NUM, Green_Led_GPIO_BIT_NUM,0);
+			Chip_GPIO_WriteDirBit(LPC_GPIO, Blue_Led_GPIO_PORT_NUM, Blue_Led_GPIO_BIT_NUM,1);
+
+
+		}
+		else
+		{
+			xSemaphoreGive(RGB);
+
+		}
+
+vTaskDelay(4000);
+	}
+}
+
+/* GREEN toggle thread */
+static void vLEDTask3(void *pvParameters)
+{
+
+
+	while (1)
+	{
+		if (xSemaphoreTake(RGB ,1000))
+
+		{
+			Chip_GPIO_WriteDirBit(LPC_GPIO, Red_Led_GPIO_PORT_NUM, Red_Led_GPIO_BIT_NUM, 0);
+			Chip_GPIO_WriteDirBit(LPC_GPIO, Green_Led_GPIO_PORT_NUM, Green_Led_GPIO_BIT_NUM,1);
+			Chip_GPIO_WriteDirBit(LPC_GPIO, Blue_Led_GPIO_PORT_NUM, Blue_Led_GPIO_BIT_NUM,0);
+
+		}
+		else
+				{
+					xSemaphoreGive(RGB);
+
+				}
+
+		vTaskDelay(4000);
+
+	}
+}
+
+
+/*****************************************************************************
+ * Public functions
+ ****************************************************************************/
+
+/**
+ * @brief	main routine for FreeRTOS blinky example
+ * @return	Nothing, function should not exit
+ */
+int main(void)
+{
+	prvSetupHardware();
+
+	RGB = xSemaphoreCreateMutex();
+
+	/* LED RED toggle thread */
+	xTaskCreate(vLEDTask1, (signed char *) "vTaskLed1",
+				configMINIMAL_STACK_SIZE, NULL, 3,NULL);
+
+	/* LED BLUE toggle thread */
+	xTaskCreate(vLEDTask2, (signed char *) "vTaskLed2",
+				configMINIMAL_STACK_SIZE, NULL, 2,NULL);
+
+
+	/* LED GREEN toggle thread */
+		xTaskCreate(vLEDTask3, (signed char *) "vTaskLed3",
+					configMINIMAL_STACK_SIZE, NULL, 1,NULL);
+
+	/* Start the scheduler */
+	vTaskStartScheduler();
+
+	/* Should never arrive here */
+	return 1;
+}
+
+/**
+ * @}
+ */

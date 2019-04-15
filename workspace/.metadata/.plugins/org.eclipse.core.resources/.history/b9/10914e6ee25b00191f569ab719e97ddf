@@ -1,0 +1,32 @@
+#include "LPC1769.h"
+#include "leds.h"
+
+const float m1[5][5] = { {0.0001, 0.001, 0.01, 0.1, 1},{0.001, 0.01, 0.1, 1, 10},{0.01, 0.1, 1, 10, 100},{0.1, 1.0, 10, 100, 1000},{1, 10, 100, 1000, 10000} };
+const float m2[5][5] = { {0.0001, 0.001, 0.01, 0.1, 1},{0.001, 0.01, 0.1, 1, 10},{0.01, 0.1, 1, 10, 100},{0.1, 1.0, 10, 100, 1000},{1, 10, 100, 1000, 10000} };
+
+int main(void) {
+
+    led2_init();
+    led2_on();
+
+    int j, m, n, p;
+    volatile float m3[5][5];
+
+    while(1) {
+        // Start 100,000 iterations of [5x5] matrix multiplication
+        for(j = 0; j < 100000; j++) {
+            for(m = 0; m < 5; m++) {
+                for(p = 0; p < 5; p++) {
+                    m3[m][p] = 0;
+                    for(n = 0; n < 5; n++) {
+                        m3[m][p] += m1[m][n] * m2[n][p];
+                    }
+                }
+            }
+        }
+        // End benchmark and indicate with LED2
+        led2_invert();
+        // Loop and repeat forever
+    }
+    return 0 ;
+}

@@ -1,0 +1,36 @@
+#include "board.h"
+#include "FreeRTOS.h"
+
+
+#define Red_Led_GPIO_PORT_NUM                   0
+#define Red_Led_GPIO_BIT_NUM                   22
+#define Blue_Led_GPIO_PORT_NUM                  3
+#define Blue_Led_GPIO_BIT_NUM                  26
+#define Green_Led_GPIO_PORT_NUM                 3
+#define Green_Led_GPIO_BIT_NUM                  25
+
+static void prvSetupHardware(void)
+{
+	SystemCoreClockUpdate();
+	Board_Init();
+	Board_LED_Set(0, false);
+}
+
+
+/* start the main program */
+int main()
+{
+    SystemInit();                        //Clock and PLL configuration
+    GPIO_PinFunction(LED,PINSEL_FUNC_0); // Configure Pin for Gpio
+    GPIO_PinDirection(LED,OUTPUT);       // Configure the pin as OUTPUT
+
+    while(1)
+    {
+        /* Turn On all the leds and wait for 100ms */
+        GPIO_PinWrite(LED,HIGH);     // Make all the Port pin as high
+        DELAY_ms(100);
+
+        GPIO_PinWrite(LED,LOW);     // Make all the Port pin as low
+        DELAY_ms(100);
+    }
+}

@@ -1,0 +1,21 @@
+19:21:58 **** Incremental Build of configuration Debug for project led_project ****
+make -r -j4 all 
+Building file: ../example/src/led_project.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_LPCOPEN -DCORE_M3 -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/lpc_chip_175x_6x/inc" -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/lpc_board_nxp_lpcxpresso_1769/inc" -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/led_project/example/inc" -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/led_project/freertos/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -specs=redlib.specs -MMD -MP -MF"example/src/led_project.d" -MT"example/src/led_project.o" -MT"example/src/led_project.d" -o "example/src/led_project.o" "../example/src/led_project.c"
+Finished building: ../example/src/led_project.c
+ 
+Building target: led_project.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/lpc_chip_175x_6x/Debug" -L"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/lpc_board_nxp_lpcxpresso_1769/Debug" -Xlinker -Map="led_project.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "freertos_blinky_Debug.ld" -o "led_project.axf"  ./freertos/src/FreeRTOSCommonHooks.o ./freertos/src/heap_3.o ./freertos/src/list.o ./freertos/src/port.o ./freertos/src/queue.o ./freertos/src/tasks.o  ./example/src/cr_startup_lpc175x_6x.o ./example/src/led_project.o ./example/src/sysinit.o   -llpc_board_nxp_lpcxpresso_1769 -llpc_chip_175x_6x
+Finished building target: led_project.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "led_project.axf"; # arm-none-eabi-objcopy -v -O binary "led_project.axf" "led_project.bin" ; # checksum -p LPC1769 -d "led_project.bin";
+   text	   data	    bss	    dec	    hex	filename
+  11868	      8	    824	  12700	   319c	led_project.axf
+ 
+
+19:21:58 Build Finished (took 678ms)
+

@@ -1,0 +1,21 @@
+22:25:11 **** Incremental Build of configuration Debug for project q ****
+make -r -j4 all 
+Building file: ../example/src/q.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_LPCOPEN -DCORE_M3 -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/lpc_chip_175x_6x/inc" -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/lpc_board_nxp_lpcxpresso_1769/inc" -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/q/example/inc" -I"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/q/freertos/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -specs=redlib.specs -MMD -MP -MF"example/src/q.d" -MT"example/src/q.o" -MT"example/src/q.d" -o "example/src/q.o" "../example/src/q.c"
+Finished building: ../example/src/q.c
+ 
+Building target: q.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/lpc_chip_175x_6x/Debug" -L"/home/manwinder/Documents/MCUXpresso_10.3.1_2233/workspace/lpc_board_nxp_lpcxpresso_1769/Debug" -Xlinker -Map="q.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "freertos_blinky_Debug.ld" -o "q.axf"  ./freertos/src/FreeRTOSCommonHooks.o ./freertos/src/heap_3.o ./freertos/src/list.o ./freertos/src/port.o ./freertos/src/queue.o ./freertos/src/tasks.o  ./example/src/cr_startup_lpc175x_6x.o ./example/src/q.o ./example/src/sysinit.o   -llpc_board_nxp_lpcxpresso_1769 -llpc_chip_175x_6x
+Finished building target: q.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "q.axf"; # arm-none-eabi-objcopy -v -O binary "q.axf" "q.bin" ; # checksum -p LPC1769 -d "q.bin";
+   text	   data	    bss	    dec	    hex	filename
+  12000	     12	    824	  12836	   3224	q.axf
+ 
+
+22:25:12 Build Finished (took 669ms)
+

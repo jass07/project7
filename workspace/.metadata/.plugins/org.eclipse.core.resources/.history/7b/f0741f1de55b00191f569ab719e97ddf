@@ -1,0 +1,50 @@
+#include "board.h"
+#include "FreeRTOS.h"
+#include "task.h"
+
+
+int delay=1000;
+static void prvSetupHardware(void)
+{
+	SystemCoreClockUpdate();
+	Board_Init();
+	Board_LED_Set(0, false);
+
+}
+static void vLEDTask0(void *pvParameters)
+{
+	bool LEDState =false;
+		while(1)
+		    {
+		    	Board_LED_Set(0,LEDState);
+		    	LEDState = !(LEDState);
+		    	vTaskDelay(delay);
+		    }
+}
+
+
+
+/*****************************************************************************
+ * Public functions
+ ****************************************************************************/
+
+/**
+ * @brief	main routine for FreeRTOS blinky example
+ * @return	Nothing, function should not exit
+ */
+int main(void)
+{
+	prvSetupHardware();
+	xTaskCreate(vLEDTask0, (signed char *) "vTaskLed0",
+				configMINIMAL_STACK_SIZE, NULL, (tskIDLE_PRIORITY + 1UL),
+				(xTaskHandle *) NULL);
+
+
+	vTaskStartScheduler();
+	/* Should never arrive here */
+	return 1;
+}
+
+/**
+ * @}
+ */

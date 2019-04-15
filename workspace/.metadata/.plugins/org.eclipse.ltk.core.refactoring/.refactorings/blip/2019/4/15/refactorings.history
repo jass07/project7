@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;blip/example/src/freertos_blinky.c&apos; to &apos;blip.c&apos;" description="Rename resource &apos;freertos_blinky.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="example/src/freertos_blinky.c" name="blip.c" stamp="1554940809644" updateReferences="true"/>
+</session>
